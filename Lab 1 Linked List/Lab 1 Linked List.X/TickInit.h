@@ -1,0 +1,1 @@
+void            TickInit(void);                 // starts tick counter
