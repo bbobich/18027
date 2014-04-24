@@ -29,6 +29,9 @@ void    list_init(void);
 
 /** <b> add_element </b> adds an element to the linked list */
 nodeptr add_element(const char* value);
+list_element* delete_element_by_index(int index);
+list_element* delete_element_by_value(const char *value);
+
 
 #ifdef DEBUG
 

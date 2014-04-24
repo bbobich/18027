@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <string.h>
 #include "Main.h"
 #include "linked_list.h"
 #include "stddef.h" //for null
@@ -6,7 +8,9 @@ typedef enum {
     NO_ERROR, // no error
     MISSING_NULL, // no null present in string passed to linked list, or it is
                   // truncated (too long) and the null is removed
-    LIST_OVERFLOW // linked list is longer than allowed by linked_list.h
+    LIST_OVERFLOW, // linked list is longer than allowed by linked_list.h
+    INVALID_INDEX_DELETE, // delete requested for non-existing index
+    INVALID_VALUE_DELETE  // delete requested for non-existing value
 } linked_list_error_codes;
 
 linked_list_error_codes error_code=NO_ERROR;
@@ -33,6 +37,8 @@ list_element db_linked_list[MAX_LIST_SIZE+1];
 
 #endif
 
+/** The list_init function initializes a blank linked list with a head and
+ * tail pointer both to null, and it also clears a blank list member */
 void    list_init(void)
 {
     unsigned int i;
@@ -57,7 +63,7 @@ void    list_init(void)
 }
 
 
-/** The add_element function takes a string, for example add_element("Hello");,
+/** <b> add_element() <\b> takes a string, for i.e. add_element("Hi");,
  * and puts it onto the linked list on top of the current head pointer. It
  * then connects pointers in the old head to the current head.  It also
  * connects the current head pointers to the previous head in memory. */
@@ -185,6 +191,118 @@ list_element* add_element(const char* value)
     return retval;
 
 }
+
+/** <b> delete_element_by_index() <\b> removes an element with node_number = to
+ * the value passed to the delete_element_by_index function, and frees
+ * the list element memory allocation.  If the user tries to delete an element
+ * which is not on the list, the function has no effect. */
+list_element* delete_element_by_index(int index)
+{
+    list_element* delete_cursor; // cycles through linked list
+    list_element* temp_cursor;   // used for clarity - provides visibility
+                                 // into the previous
+    BOOL successful_delete=FALSE;
+    int i;
+
+    // start searching through the linked list at the tail
+    delete_cursor=tail;
+    for(i=0;i<list_size;i++)
+    {
+        if(delete_cursor->node_number==index)
+        {
+            // Point to previous element to the one to be deleted
+            temp_cursor=*(&(delete_cursor->prev));
+
+            // Set the next value of the previous element to the element
+            // beyond the element to be deleted
+            temp_cursor->next=delete_cursor->next;
+
+            // Point to the element one beyond the element to be deleted
+            temp_cursor=*(&(delete_cursor->next));
+
+            // Set the prev value of the next element beyond the element
+            // to be deleted to the element prior to the element to be deleted
+            temp_cursor->prev=delete_cursor->prev;
+
+            // Actually delete the element pointed to by the delete_cursor
+            free(delete_cursor);
+            list_size--; // There is now one less element in the list
+
+            // user has not called a deletion for a non-existent element
+            successful_delete=TRUE;
+            break; // exit the for loop, since there is no reason to stay in
+                   // the loop any more
+        }
+        // Cycle to the next element in the linked list
+        delete_cursor=delete_cursor->prev;
+    }
+
+    if(successful_delete==FALSE)
+    {
+        // means no list element's number matched what the user tried to
+        // remove from the linked list
+        error_code=INVALID_INDEX_DELETE;
+    }
+
+    // Return the element one beyond the element which was deleted
+    // (One element closer to the tail
+    return temp_cursor;
+}
+
+list_element* delete_element_by_value(const char *value)
+{
+    list_element* delete_cursor; // cycles through linked list
+    list_element* temp_cursor;   // used for clarity - provides visibility
+                                 // into the previous
+    BOOL successful_delete=FALSE;
+    int i;
+
+    // start searching through the linked list at the tail
+    delete_cursor=tail;
+    for(i=0;i<list_size;i++)
+    {
+        //strcmp returns zero if both strings are the same, non-zero otherwise
+        if(strcmp((const char*) delete_cursor->node_data, value)==0)
+        {
+            // Point to previous element to the one to be deleted
+            temp_cursor=*(&(delete_cursor->prev));
+
+            // Set the next value of the previous element to the element
+            // beyond the element to be deleted
+            temp_cursor->next=delete_cursor->next;
+
+            // Point to the element one beyond the element to be deleted
+            temp_cursor=*(&(delete_cursor->next));
+
+            // Set the prev value of the next element beyond the element
+            // to be deleted to the element prior to the element to be deleted
+            temp_cursor->prev=delete_cursor->prev;
+
+            // Actually delete the element pointed to by the delete_cursor
+            free(delete_cursor);
+            list_size--; // There is now one less element in the list
+
+            // user has not called a deletion for a non-existent element
+            successful_delete=TRUE;
+            break; // exit the for loop, since there is no reason to stay in
+                   // the loop any more
+        }
+
+        // Cycle to the next element in the linked list
+        delete_cursor=delete_cursor->prev;
+    }
+    if(successful_delete==FALSE)
+    {
+        // means no list element's string matched what the user tried to
+        // remove from the linked list
+        error_code=INVALID_VALUE_DELETE;
+    }
+
+    // Return the element one beyond the element which was deleted
+    // (One element closer to the tail
+    return temp_cursor;
+}
+
 
 #ifdef DEBUG
 

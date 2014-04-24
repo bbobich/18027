@@ -56,10 +56,11 @@ int main(void)
     add_element("0123456789");
     add_element("0123456789");
     add_element("0123456789");
-    add_element("0123456789");
+    add_element("Benjamin");
     add_element("0123456789");
     db_view_linked_list();
-
+    delete_element_by_value("Benjamin");
+    delete_element_by_index(1);
 
     while(1)
     {
