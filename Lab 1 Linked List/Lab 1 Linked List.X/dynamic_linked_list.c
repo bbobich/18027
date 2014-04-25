@@ -101,7 +101,9 @@ list_element* add_element(const char* value)
 
         // Set the head's next pointer to the address contained at the
         // tail pointer address (dereference the tail pointer)
-        head->next=(list_element*) *(&tail);
+
+        //head->next=(list_element*) *(&tail);
+        head->next=tail;
 
         // Set NULL's
         head->prev=NULL;
@@ -111,7 +113,7 @@ list_element* add_element(const char* value)
 
         // Set the tail's previous pointer to the address contained at the
         // head pointer address (dereference the head pointer)
-        tail->prev=(list_element*) *(&head);
+        tail->prev=head;
 
         //Initialize the list with data passed to the add_element()
         for(i=0;i<MAX_NODE_CHARS;i++)
@@ -131,7 +133,7 @@ list_element* add_element(const char* value)
 
         // Increment the list_size variable used to track the link list's
         // number of members
-        list_size++; 
+        list_size++;
     }
     else
     {
@@ -154,10 +156,10 @@ list_element* add_element(const char* value)
             // reference to the previous list element, hence the existence of the
             // previous_pointer variable.  This connects the old prev value with
             // the new head pointer.
-            previous_pointer->prev=(list_element*) *(&head);
+            previous_pointer->prev=head;
 
             // Connect the head pointer to the previous head of the list
-            head->next=(list_element*) *(&previous_pointer);
+            head->next=previous_pointer;
 
             // The new head is the top of the linked list, so make the prev
             // value NULL
@@ -190,6 +192,66 @@ list_element* add_element(const char* value)
 
     return retval;
 
+}
+
+
+list_element* insert_element(const char* value, const char* element_position_string){
+
+    list_element* insert_cursor=NULL;
+    list_element* temp_cursor=NULL;
+    int i;
+
+    //find the element that has the element_position_string
+
+    insert_cursor=search_list(element_position_string);
+
+    //if found then, create the new element
+
+    if(insert_cursor!=NULL){
+
+            temp_cursor=(list_element*) malloc(sizeof(list_element));;
+
+
+            for(i=0;i<MAX_NODE_CHARS;i++)
+            {
+                if(*value!='\0')
+                {
+                    temp_cursor->node_data[i]=*value++;
+                }
+                else
+                {
+                    temp_cursor->node_data[i]=0;
+                }
+            }
+
+            // Set the node number of the list to pre-incremented list size
+            head->node_number = ++list_size;
+
+            //copy the pointers to point to
+            temp_cursor->next=insert_cursor->next;
+            temp_cursor->prev=insert_cursor;
+
+            insert_cursor->next=temp_cursor;
+
+            temp_cursor->next->prev=temp_cursor;
+
+        }
+
+}
+
+list_element* search_list(const char* value){
+
+    list_element* search_cursor=NULL;
+
+    search_cursor=head;
+
+
+    while(search_cursor!=NULL && strcmp((const char*)search_cursor->node_data,value)!=0){
+
+        search_cursor=search_cursor->next;
+    }
+
+    return search_cursor;
 }
 
 /** <b> delete_element_by_index() <\b> removes an element with node_number = to
