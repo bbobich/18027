@@ -165,6 +165,7 @@ list_element* add_element(const char* value)
             // value NULL
             head->prev=NULL;
 
+
             //Initialize the list with data passed to this function
             for(i=0;i<MAX_NODE_CHARS;i++)
             {
@@ -203,7 +204,7 @@ list_element* insert_element(const char* value, const char* element_position_str
 
     //find the element that has the element_position_string
 
-    insert_cursor=search_list(element_position_string);
+    insert_cursor=search_list_value(element_position_string);
 
     //if found then, create the new element
 
@@ -225,7 +226,7 @@ list_element* insert_element(const char* value, const char* element_position_str
             }
 
             // Set the node number of the list to pre-incremented list size
-            head->node_number = ++list_size;
+            head->node_number = list_size++;
 
             //copy the pointers to point to
             temp_cursor->next=insert_cursor->next;
@@ -239,7 +240,7 @@ list_element* insert_element(const char* value, const char* element_position_str
 
 }
 
-list_element* search_list(const char* value){
+list_element* search_list_value(const char* value){
 
     list_element* search_cursor=NULL;
 
@@ -267,7 +268,7 @@ list_element* delete_element_by_index(int index)
     int i;
 
     // start searching through the linked list at the tail
-    delete_cursor=tail;
+    delete_cursor=head;
     for(i=0;i<list_size;i++)
     {
         if(delete_cursor->node_number==index)
@@ -296,7 +297,7 @@ list_element* delete_element_by_index(int index)
                    // the loop any more
         }
         // Cycle to the next element in the linked list
-        delete_cursor=delete_cursor->prev;
+        delete_cursor=delete_cursor->next;
     }
 
     if(successful_delete==FALSE)
@@ -319,22 +320,23 @@ list_element* delete_element_by_value(const char *value)
     BOOL successful_delete=FALSE;
     int i;
 
-    // start searching through the linked list at the tail
-    delete_cursor=tail;
-    for(i=0;i<list_size;i++)
-    {
-        //strcmp returns zero if both strings are the same, non-zero otherwise
-        if(strcmp((const char*) delete_cursor->node_data, value)==0)
-        {
-            // Point to previous element to the one to be deleted
-            temp_cursor=*(&(delete_cursor->prev));
+    //find the element that has the element_position_string
+
+    delete_cursor=search_list_value(value);
+
+    //if found then, create the new element
+
+    if(delete_cursor!=NULL){
+
+        // Point to previous element to the one to be deleted
+            temp_cursor=delete_cursor->prev;
 
             // Set the next value of the previous element to the element
             // beyond the element to be deleted
             temp_cursor->next=delete_cursor->next;
 
             // Point to the element one beyond the element to be deleted
-            temp_cursor=*(&(delete_cursor->next));
+            temp_cursor=delete_cursor->next;
 
             // Set the prev value of the next element beyond the element
             // to be deleted to the element prior to the element to be deleted
@@ -346,13 +348,11 @@ list_element* delete_element_by_value(const char *value)
 
             // user has not called a deletion for a non-existent element
             successful_delete=TRUE;
-            break; // exit the for loop, since there is no reason to stay in
-                   // the loop any more
-        }
 
-        // Cycle to the next element in the linked list
-        delete_cursor=delete_cursor->prev;
+
     }
+
+    
     if(successful_delete==FALSE)
     {
         // means no list element's string matched what the user tried to

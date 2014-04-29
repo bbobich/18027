@@ -33,7 +33,7 @@ list_element* delete_element_by_index(int index);
 list_element* delete_element_by_value(const char *value);
 
 list_element* insert_element(const char* value, const char* element_position_string);
-list_element* search_list(const char* value);
+list_element* search_list_value(const char* value);
 
 
 #ifdef DEBUG

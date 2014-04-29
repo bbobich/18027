@@ -53,15 +53,19 @@ int main(void)
 
     list_init();
 
-    add_element("0123456789");
-    add_element("0123456789");
-    add_element("0123456789");
+    add_element("microchip");
+    
     add_element("Benjamin");
-    insert_element("harold","Benjamin");
-    add_element("0123456789");
-    db_view_linked_list();
+    add_element("icd2");
+    
+   add_element("technology");
+   insert_element("harold","technology");
+   delete_element_by_value("microchip");
+    delete_element_by_value("icd2");
     delete_element_by_value("Benjamin");
     delete_element_by_index(1);
+    db_view_linked_list();
+    
 
     while(1)
     {
