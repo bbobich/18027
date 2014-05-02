@@ -14,6 +14,7 @@ typedef struct list_node_t
 {
     unsigned char node_number;
     unsigned char node_data[MAX_NODE_CHARS];
+    XCHAR ListBoxStr[MAX_NODE_CHARS];
     struct list_node_t *next;
     struct list_node_t *prev;
 } list_element, *nodeptr;
@@ -22,6 +23,7 @@ typedef struct list_data_t
 {
     unsigned char node_number;
     unsigned char* node_data;
+
 } list_data;
 
 

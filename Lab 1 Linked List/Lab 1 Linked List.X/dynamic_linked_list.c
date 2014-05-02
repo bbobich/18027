@@ -30,6 +30,13 @@ static INT16 list_size; // units in elements
 
 char temp[MAX_NODE_CHARS];
 
+//LISTBOX declrarations
+#define LISTBOX_ID 10
+LISTBOX *pLb;
+LISTITEM *pItem;
+///////////////////////
+
+
 #ifdef DEBUG
 
 // For debugging the linked lists, +1 is so the last NULL can be seen. 
@@ -60,6 +67,14 @@ void    list_init(void)
     tail->node_number = 0;
 
     list_size=0;
+
+    pLb=LbCreate(LISTBOX_ID,
+                10,10,150,200,
+                LB_DRAW,
+                NULL,
+                NULL);
+
+    
 }
 
 
@@ -120,11 +135,17 @@ list_element* add_element(const char* value)
         {
             if(*value!='\0')
             {
+                //add to the graphics list
+                head->ListBoxStr[i]=*value;
+
+                //add to the node_data
                 head->node_data[i]=*value++;
+                 
             }
             else
             {
                 head->node_data[i]=0;
+                head->ListBoxStr[i]=0;
             }
         }
 
@@ -171,11 +192,16 @@ list_element* add_element(const char* value)
             {
                 if(*value!='\0')
                 {
+                    //add to the graphics list
+                    head->ListBoxStr[i]=*value;
+
+                    //add to node data
                     head->node_data[i]=*value++;
                 }
                 else
                 {
                     head->node_data[i]=0;
+                    head->ListBoxStr[i]=0;
                 }
             }
             // Set the node number of the list to pre-incremented list size
@@ -187,9 +213,9 @@ list_element* add_element(const char* value)
         }
     }
 
-    Nop(); // For debug purposes
-    Nop();
-    Nop();
+
+    //add text to the Graphics list
+    pItem=LbAddItem(pLb,pItem,&head->ListBoxStr,NULL,LB_STS_SELECTED,1);
 
     return retval;
 

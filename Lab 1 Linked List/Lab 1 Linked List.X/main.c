@@ -37,33 +37,31 @@
 #include "Main.h"
 #include "linked_list.h"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //                            LOCAL PROTOTYPES
 /////////////////////////////////////////////////////////////////////////////
 
 
+
+
 int main(void)
 {
-    GOL_MSG msg;                    // GOL message structure to interact with GOL
-  //  InitializeBoard();              // Initialize the Graphics Display 4.3"
-                                    // with the PIC24FJ256DA210 development
-                                    // board
-    /** <b> top </b> is a pointer to a the storage for the top node of the
-     * list */
+    GOL_MSG msg;                    // GOL message structure to interact with GO
+    int i=0;
+    InitializeBoard();
 
+    SetColor(BLACK);
+    ClearDevice();
+
+    //add pointers to the listbox
     list_init();
 
     add_element("microchip");
-    
-    add_element("Benjamin");
-    add_element("icd2");
-    
-   add_element("technology");
-   insert_element("harold","technology");
-   delete_element_by_value("microchip");
-    delete_element_by_value("icd2");
-    delete_element_by_value("Benjamin");
-    delete_element_by_index(1);
+    add_element("technolog");
+    add_element("harold");
+    add_element("MASTERs");
+   
     db_view_linked_list();
     
 
@@ -80,3 +78,5 @@ int main(void)
         }
     } //end while
 }
+
+
