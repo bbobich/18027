@@ -58,10 +58,15 @@ int main(void)
     list_init();
 
     add_element("microchip");
-    add_element("technolog");
+    add_element("technology");
     add_element("harold");
-    add_element("MASTERs");
-   
+    add_element("MASTERS");
+    //delete_element_by_value("harold");
+    delete_element_by_value("microchip");
+    
+    //insert_element("joshua","harold");
+    add_element("great");
+    //insert_element("chicago","harold");
     db_view_linked_list();
     
 

@@ -1,4 +1,5 @@
 
+
 /** Maximum number of characters in a list element.  Note that the last
  * character passed to an add() function is required to be a '\0' NULL, so
  * 11 effectively means 10 characters is the maximum allowed to be passed
@@ -14,9 +15,10 @@ typedef struct list_node_t
 {
     unsigned char node_number;
     unsigned char node_data[MAX_NODE_CHARS];
-    XCHAR ListBoxStr[MAX_NODE_CHARS];
     struct list_node_t *next;
     struct list_node_t *prev;
+    XCHAR ListBoxStr[MAX_NODE_CHARS];
+    LISTITEM *list_box_item;
 } list_element, *nodeptr;
 
 typedef struct list_data_t

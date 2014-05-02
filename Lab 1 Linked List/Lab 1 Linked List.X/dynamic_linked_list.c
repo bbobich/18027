@@ -33,9 +33,8 @@ char temp[MAX_NODE_CHARS];
 //LISTBOX declrarations
 #define LISTBOX_ID 10
 LISTBOX *pLb;
-LISTITEM *pItem;
+LISTITEM *pLISTITEM;
 ///////////////////////
-
 
 #ifdef DEBUG
 
@@ -149,6 +148,7 @@ list_element* add_element(const char* value)
             }
         }
 
+        
         // Give the newly created node a number
         head->node_number = 1;
 
@@ -204,6 +204,8 @@ list_element* add_element(const char* value)
                     head->ListBoxStr[i]=0;
                 }
             }
+
+          
             // Set the node number of the list to pre-incremented list size
             head->node_number = ++list_size;
         }
@@ -213,9 +215,14 @@ list_element* add_element(const char* value)
         }
     }
 
+    
+    //add text to the Graphics listbox
+    pLISTITEM=LbAddItem(pLb,pLISTITEM,&head->ListBoxStr,NULL,NULL,1);
+    head->list_box_item=pLISTITEM;
 
-    //add text to the Graphics list
-    pItem=LbAddItem(pLb,pItem,&head->ListBoxStr,NULL,LB_STS_SELECTED,1);
+    Nop();
+    Nop();
+    Nop();
 
     return retval;
 
@@ -243,11 +250,14 @@ list_element* insert_element(const char* value, const char* element_position_str
             {
                 if(*value!='\0')
                 {
+                    //add to the graphics list
+                    temp_cursor->ListBoxStr[i]=*value;
                     temp_cursor->node_data[i]=*value++;
                 }
                 else
                 {
                     temp_cursor->node_data[i]=0;
+                    temp_cursor->ListBoxStr[i]=0;
                 }
             }
 
@@ -261,6 +271,8 @@ list_element* insert_element(const char* value, const char* element_position_str
             insert_cursor->next=temp_cursor;
 
             temp_cursor->next->prev=temp_cursor;
+
+            pLISTITEM=LbAddItem(pLb,insert_cursor->list_box_item,&temp_cursor->ListBoxStr,NULL,NULL,1);
 
         }
 
@@ -369,7 +381,12 @@ list_element* delete_element_by_value(const char *value)
             temp_cursor->prev=delete_cursor->prev;
 
             // Actually delete the element pointed to by the delete_cursor
+
             free(delete_cursor);
+
+            //Delete the item from the graphical listbox
+            LbDelItem(pLb,delete_cursor->list_box_item);
+
             list_size--; // There is now one less element in the list
 
             // user has not called a deletion for a non-existent element
@@ -386,6 +403,7 @@ list_element* delete_element_by_value(const char *value)
         error_code=INVALID_VALUE_DELETE;
     }
 
+    
     // Return the element one beyond the element which was deleted
     // (One element closer to the tail
     return temp_cursor;
