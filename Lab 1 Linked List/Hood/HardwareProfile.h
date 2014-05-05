@@ -52,6 +52,8 @@
 
 #ifndef CFG_INCLUDE_MPLAB_X
 
+#include "Configs/HWP_DA210_BRD_16PMP_WQVGAv1.h"
+
 #if defined (__PIC24F__) || defined(__dsPIC33F__) || defined(__PIC24H__) || defined (__dsPIC33E__) 
 
 	#if defined (__PIC24FJ256DA210__)

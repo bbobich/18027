@@ -56,17 +56,17 @@ int main(void)
 
     //add pointers to the listbox
     list_init();
-
+add_element("technology");
     add_element("microchip");
-    add_element("technology");
-    add_element("harold");
-    add_element("MASTERS");
     //delete_element_by_value("harold");
+    //
+    //add_element("great");
+    insert_element("Chandler","microchip");
     delete_element_by_value("microchip");
     
-    //insert_element("joshua","harold");
-    add_element("great");
-    //insert_element("chicago","harold");
+    insert_element("Mesa","technology");
+    insert_element("Tempe","Mesa");
+
     db_view_linked_list();
     
 

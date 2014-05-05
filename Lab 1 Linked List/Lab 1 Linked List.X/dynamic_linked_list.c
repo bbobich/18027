@@ -284,7 +284,7 @@ list_element* search_list_value(const char* value){
 
     search_cursor=head;
 
-
+    
     while(search_cursor!=NULL && strcmp((const char*)search_cursor->node_data,value)!=0){
 
         search_cursor=search_cursor->next;
