@@ -4,17 +4,73 @@
 # NOCDDL
 #
 CND_BASEDIR=`pwd`
-# Debug configuration
-CND_ARTIFACT_DIR_Debug=dist/Debug/production
-CND_ARTIFACT_NAME_Debug=Lab_1_Linked_List.X.production.hex
-CND_ARTIFACT_PATH_Debug=dist/Debug/production/Lab_1_Linked_List.X.production.hex
-CND_PACKAGE_DIR_Debug=${CND_DISTDIR}/Debug/package
-CND_PACKAGE_NAME_Debug=lab1linkedlist.x.tar
-CND_PACKAGE_PATH_Debug=${CND_DISTDIR}/Debug/package/lab1linkedlist.x.tar
-# Release configuration
-CND_ARTIFACT_DIR_Release=dist/Release/production
-CND_ARTIFACT_NAME_Release=Lab_1_Linked_List.X.production.hex
-CND_ARTIFACT_PATH_Release=dist/Release/production/Lab_1_Linked_List.X.production.hex
-CND_PACKAGE_DIR_Release=${CND_DISTDIR}/Release/package
-CND_PACKAGE_NAME_Release=lab1linkedlist.x.tar
-CND_PACKAGE_PATH_Release=${CND_DISTDIR}/Release/package/lab1linkedlist.x.tar
+# Lab_1_Linked_List configuration
+CND_ARTIFACT_DIR_Lab_1_Linked_List=dist/Lab_1_Linked_List/production
+CND_ARTIFACT_NAME_Lab_1_Linked_List=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_1_Linked_List=dist/Lab_1_Linked_List/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_1_Linked_List=${CND_DISTDIR}/Lab_1_Linked_List/package
+CND_PACKAGE_NAME_Lab_1_Linked_List=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_1_Linked_List=${CND_DISTDIR}/Lab_1_Linked_List/package/lab1linkedlist.x.tar
+# Lab_1_Solution configuration
+CND_ARTIFACT_DIR_Lab_1_Solution=dist/Lab_1_Solution/production
+CND_ARTIFACT_NAME_Lab_1_Solution=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_1_Solution=dist/Lab_1_Solution/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_1_Solution=${CND_DISTDIR}/Lab_1_Solution/package
+CND_PACKAGE_NAME_Lab_1_Solution=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_1_Solution=${CND_DISTDIR}/Lab_1_Solution/package/lab1linkedlist.x.tar
+# Lab_2_Stacks configuration
+CND_ARTIFACT_DIR_Lab_2_Stacks=dist/Lab_2_Stacks/production
+CND_ARTIFACT_NAME_Lab_2_Stacks=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_2_Stacks=dist/Lab_2_Stacks/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_2_Stacks=${CND_DISTDIR}/Lab_2_Stacks/package
+CND_PACKAGE_NAME_Lab_2_Stacks=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_2_Stacks=${CND_DISTDIR}/Lab_2_Stacks/package/lab1linkedlist.x.tar
+# Lab_2_Solution configuration
+CND_ARTIFACT_DIR_Lab_2_Solution=dist/Lab_2_Solution/production
+CND_ARTIFACT_NAME_Lab_2_Solution=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_2_Solution=dist/Lab_2_Solution/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_2_Solution=${CND_DISTDIR}/Lab_2_Solution/package
+CND_PACKAGE_NAME_Lab_2_Solution=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_2_Solution=${CND_DISTDIR}/Lab_2_Solution/package/lab1linkedlist.x.tar
+# Lab_3_Queues configuration
+CND_ARTIFACT_DIR_Lab_3_Queues=dist/Lab_3_Queues/production
+CND_ARTIFACT_NAME_Lab_3_Queues=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_3_Queues=dist/Lab_3_Queues/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_3_Queues=${CND_DISTDIR}/Lab_3_Queues/package
+CND_PACKAGE_NAME_Lab_3_Queues=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_3_Queues=${CND_DISTDIR}/Lab_3_Queues/package/lab1linkedlist.x.tar
+# Lab_3_Solution configuration
+CND_ARTIFACT_DIR_Lab_3_Solution=dist/Lab_3_Solution/production
+CND_ARTIFACT_NAME_Lab_3_Solution=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_3_Solution=dist/Lab_3_Solution/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_3_Solution=${CND_DISTDIR}/Lab_3_Solution/package
+CND_PACKAGE_NAME_Lab_3_Solution=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_3_Solution=${CND_DISTDIR}/Lab_3_Solution/package/lab1linkedlist.x.tar
+# Lab_4_BST configuration
+CND_ARTIFACT_DIR_Lab_4_BST=dist/Lab_4_BST/production
+CND_ARTIFACT_NAME_Lab_4_BST=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_4_BST=dist/Lab_4_BST/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_4_BST=${CND_DISTDIR}/Lab_4_BST/package
+CND_PACKAGE_NAME_Lab_4_BST=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_4_BST=${CND_DISTDIR}/Lab_4_BST/package/lab1linkedlist.x.tar
+# Lab_4_Solution configuration
+CND_ARTIFACT_DIR_Lab_4_Solution=dist/Lab_4_Solution/production
+CND_ARTIFACT_NAME_Lab_4_Solution=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_4_Solution=dist/Lab_4_Solution/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_4_Solution=${CND_DISTDIR}/Lab_4_Solution/package
+CND_PACKAGE_NAME_Lab_4_Solution=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_4_Solution=${CND_DISTDIR}/Lab_4_Solution/package/lab1linkedlist.x.tar
+# Lab_5_Sorting configuration
+CND_ARTIFACT_DIR_Lab_5_Sorting=dist/Lab_5_Sorting/production
+CND_ARTIFACT_NAME_Lab_5_Sorting=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_5_Sorting=dist/Lab_5_Sorting/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_5_Sorting=${CND_DISTDIR}/Lab_5_Sorting/package
+CND_PACKAGE_NAME_Lab_5_Sorting=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_5_Sorting=${CND_DISTDIR}/Lab_5_Sorting/package/lab1linkedlist.x.tar
+# Lab_5_Solution configuration
+CND_ARTIFACT_DIR_Lab_5_Solution=dist/Lab_5_Solution/production
+CND_ARTIFACT_NAME_Lab_5_Solution=Lab_1_Linked_List.X.production.hex
+CND_ARTIFACT_PATH_Lab_5_Solution=dist/Lab_5_Solution/production/Lab_1_Linked_List.X.production.hex
+CND_PACKAGE_DIR_Lab_5_Solution=${CND_DISTDIR}/Lab_5_Solution/package
+CND_PACKAGE_NAME_Lab_5_Solution=lab1linkedlist.x.tar
+CND_PACKAGE_PATH_Lab_5_Solution=${CND_DISTDIR}/Lab_5_Solution/package/lab1linkedlist.x.tar
