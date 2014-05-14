@@ -48,12 +48,11 @@
 int main(void)
 {
     GOL_MSG msg;                    // GOL message structure to interact with GO
-    int i=0;
     InitializeBoard();
 
     SetColor(BLACK);
     ClearDevice();
-
+#if 0
     //add pointers to the listbox
     list_init();
 add_element("technology");
@@ -66,8 +65,9 @@ add_element("technology");
     
     insert_element("Mesa","technology");
     insert_element("Tempe","Mesa");
+#endif
 
-    db_view_linked_list();
+ //   db_view_linked_list();
     
 
     while(1)

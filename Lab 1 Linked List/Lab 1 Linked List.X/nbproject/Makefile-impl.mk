@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Lab 1 Linked List.X
 
 # Active Configuration
-DEFAULTCONF=Debug
+DEFAULTCONF=Lab_1_Linked_List
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release 
+ALLCONFS=Lab_1_Linked_List Lab_1_Solution Lab_2_Stacks Lab_2_Solution Lab_3_Queues Lab_3_Solution Lab_4_BST Lab_4_Solution Lab_5_Sorting Lab_5_Solution 
 
 
 # build
@@ -45,15 +45,31 @@ ALLCONFS=Debug Release
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Release clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_1_Linked_List clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_1_Solution clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_2_Stacks clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_2_Solution clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_3_Queues clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_3_Solution clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_4_BST clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_4_Solution clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_5_Sorting clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_5_Solution clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Release build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_1_Linked_List build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_1_Solution build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_2_Stacks build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_2_Solution build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_3_Queues build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_3_Solution build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_4_BST build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_4_Solution build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_5_Sorting build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Lab_5_Solution build
 
 
 
