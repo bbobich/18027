@@ -1,15 +1,14 @@
-build/Lab_1_Linked_List/production/main.o:  \
-main.c  \
-../Hood/Main.h  \
+build/Lab_1_Linked_List/debug/_ext/1545724809/TouchScreenResistive.o:  \
+ ../Hood/Board\ Support\ Package/TouchScreenResistive.c  \
+ ../Hood/HardwareProfile.h  \
+../Hood/Configs/HWP_DA210_BRD_16PMP_WQVGAv1.h  \
  ../Hood/Microchip/Include/Compiler.h  \
- ../Hood/Microchip/Include/GenericTypeDefs.h  \
+ ../Hood/Configs/HWP_DA210_BRD_16PMP_QVGAv1.h  \
  ../Hood/Microchip/Include/Graphics/Graphics.h  \
+ ../Hood/Microchip/Include/GenericTypeDefs.h  \
 ../Hood/GraphicsConfig.h  \
  ../Hood/Microchip/Include/Graphics/DisplayDriver.h  \
  ../Hood/Microchip/Include/Graphics/gfxcolors.h  \
-../Hood/HardwareProfile.h  \
- ../Hood/Configs/HWP_DA210_BRD_16PMP_WQVGAv1.h  \
- ../Hood/Configs/HWP_DA210_BRD_16PMP_QVGAv1.h  \
  ../Hood/Microchip/Include/Graphics/Primitive.h  \
  ../Hood/Microchip/Include/Graphics/GOL.h  \
  ../Hood/Microchip/Include/Graphics/Primitive.h  \
@@ -19,17 +18,7 @@ main.c  \
  ../Hood/Microchip/Include/Graphics/Button.h  \
  ../Hood/Microchip/Include/Graphics/GOL.h  \
  ../Hood/Microchip/Include/Graphics/ListBox.h  \
- ../Hood/Board\ Support\ Package/drv_spi.h  \
- ../Hood/Board\ Support\ Package/SST25VF016.h  \
- ../Hood/Board\ Support\ Package/drv_spi.h  \
- ../Hood/Board\ Support\ Package/TouchScreen.h  \
  ../Hood/Microchip/Include/TimeDelay.h  \
  ../Hood/Microchip/Include/GenericTypeDefs.h  \
-../Hood/HardwareProfile.h  \
- ../Hood/Microchip/Include/Graphics/mchpGfxDrv.h  \
-SPI.h  \
-TickInit.h  \
- TouchScreenInit.h  \
-InitializeBoard.h  \
-linked_list.h  \
-Queue.h 
+ ../Hood/Board\ Support\ Package/TouchScreen.h  \
+ ../Hood/Board\ Support\ Package/TouchScreenResistive.h 

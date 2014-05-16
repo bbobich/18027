@@ -36,7 +36,7 @@
 #include <xc.h>
 #include "Main.h"
 #include "linked_list.h"
-
+#include "Queue.h"
 
 /////////////////////////////////////////////////////////////////////////////
 //                            LOCAL PROTOTYPES
@@ -55,7 +55,7 @@ int main(void)
 #if 0
     //add pointers to the listbox
     list_init();
-add_element("technology");
+    add_element("technology");
     add_element("microchip");
     //delete_element_by_value("harold");
     //
@@ -67,14 +67,14 @@ add_element("technology");
     insert_element("Tempe","Mesa");
 #endif
 
- //   db_view_linked_list();
-    
+    init_queue();
+    enqueue("Harold");
+    enqueue("Microchip");
+    enqueue("Technology");
+ // db_view_linked_list();
 
     while(1)
     {
-        
-
-
         // THIS IS THE GRAPHICS RELATED STUFF
         if(GOLDraw())               // Draw GOL object
         {

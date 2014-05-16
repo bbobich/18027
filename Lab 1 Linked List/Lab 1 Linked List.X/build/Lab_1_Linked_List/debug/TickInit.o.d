@@ -1,5 +1,5 @@
-build/Lab_1_Linked_List/production/main.o:  \
-main.c  \
+build/Lab_1_Linked_List/debug/TickInit.o:  \
+TickInit.c  \
 ../Hood/Main.h  \
  ../Hood/Microchip/Include/Compiler.h  \
  ../Hood/Microchip/Include/GenericTypeDefs.h  \
@@ -30,6 +30,4 @@ main.c  \
 SPI.h  \
 TickInit.h  \
  TouchScreenInit.h  \
-InitializeBoard.h  \
-linked_list.h  \
-Queue.h 
+InitializeBoard.h 

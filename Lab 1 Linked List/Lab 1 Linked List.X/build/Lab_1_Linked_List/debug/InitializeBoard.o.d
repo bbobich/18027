@@ -1,7 +1,7 @@
-build/Lab_1_Linked_List/production/main.o:  \
-main.c  \
-../Hood/Main.h  \
- ../Hood/Microchip/Include/Compiler.h  \
+build/Lab_1_Linked_List/debug/InitializeBoard.o:  \
+InitializeBoard.c  \
+ ../Hood/Main.h  \
+../Hood/Microchip/Include/Compiler.h  \
  ../Hood/Microchip/Include/GenericTypeDefs.h  \
  ../Hood/Microchip/Include/Graphics/Graphics.h  \
 ../Hood/GraphicsConfig.h  \
@@ -30,6 +30,4 @@ main.c  \
 SPI.h  \
 TickInit.h  \
  TouchScreenInit.h  \
-InitializeBoard.h  \
-linked_list.h  \
-Queue.h 
+InitializeBoard.h 

@@ -1,4 +1,4 @@
-build/Lab_1_Linked_List/production/main.o:  \
+build/Lab_1_Linked_List/debug/main.o:  \
 main.c  \
 ../Hood/Main.h  \
  ../Hood/Microchip/Include/Compiler.h  \

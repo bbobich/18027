@@ -327,6 +327,9 @@ list_element* delete_element_by_index(int index)
 
             // Actually delete the element pointed to by the delete_cursor
             free(delete_cursor);
+
+            delete_cursor=NULL;
+
             list_size--; // There is now one less element in the list
 
             // user has not called a deletion for a non-existent element
@@ -380,12 +383,13 @@ list_element* delete_element_by_value(const char *value)
             // to be deleted to the element prior to the element to be deleted
             temp_cursor->prev=delete_cursor->prev;
 
+            //Delete the item from the graphical listbox
+            LbDelItem(pLb,delete_cursor->list_box_item);
+
             // Actually delete the element pointed to by the delete_cursor
 
             free(delete_cursor);
-
-            //Delete the item from the graphical listbox
-            LbDelItem(pLb,delete_cursor->list_box_item);
+            delete_cursor=NULL;
 
             list_size--; // There is now one less element in the list
 

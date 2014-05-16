@@ -1,5 +1,5 @@
-build/Lab_1_Linked_List/production/main.o:  \
-main.c  \
+build/Lab_1_Linked_List/debug/dynamic_linked_list.o:  \
+ dynamic_linked_list.c  \
 ../Hood/Main.h  \
  ../Hood/Microchip/Include/Compiler.h  \
  ../Hood/Microchip/Include/GenericTypeDefs.h  \
@@ -31,5 +31,4 @@ SPI.h  \
 TickInit.h  \
  TouchScreenInit.h  \
 InitializeBoard.h  \
-linked_list.h  \
-Queue.h 
+linked_list.h 

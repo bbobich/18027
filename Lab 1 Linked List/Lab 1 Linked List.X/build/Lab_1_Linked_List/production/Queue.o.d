@@ -1,14 +1,14 @@
-build/Lab_1_Linked_List/production/main.o:  \
-main.c  \
-../Hood/Main.h  \
- ../Hood/Microchip/Include/Compiler.h  \
- ../Hood/Microchip/Include/GenericTypeDefs.h  \
+build/Lab_1_Linked_List/production/Queue.o:  \
+Queue.c  \
+Queue.h  \
  ../Hood/Microchip/Include/Graphics/Graphics.h  \
+ ../Hood/Microchip/Include/GenericTypeDefs.h  \
 ../Hood/GraphicsConfig.h  \
  ../Hood/Microchip/Include/Graphics/DisplayDriver.h  \
  ../Hood/Microchip/Include/Graphics/gfxcolors.h  \
 ../Hood/HardwareProfile.h  \
  ../Hood/Configs/HWP_DA210_BRD_16PMP_WQVGAv1.h  \
+ ../Hood/Microchip/Include/Compiler.h  \
  ../Hood/Configs/HWP_DA210_BRD_16PMP_QVGAv1.h  \
  ../Hood/Microchip/Include/Graphics/Primitive.h  \
  ../Hood/Microchip/Include/Graphics/GOL.h  \
@@ -19,6 +19,7 @@ main.c  \
  ../Hood/Microchip/Include/Graphics/Button.h  \
  ../Hood/Microchip/Include/Graphics/GOL.h  \
  ../Hood/Microchip/Include/Graphics/ListBox.h  \
+../Hood/main.h  \
  ../Hood/Board\ Support\ Package/drv_spi.h  \
  ../Hood/Board\ Support\ Package/SST25VF016.h  \
  ../Hood/Board\ Support\ Package/drv_spi.h  \
@@ -30,6 +31,4 @@ main.c  \
 SPI.h  \
 TickInit.h  \
  TouchScreenInit.h  \
-InitializeBoard.h  \
-linked_list.h  \
-Queue.h 
+InitializeBoard.h 
