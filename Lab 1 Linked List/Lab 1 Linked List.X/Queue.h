@@ -9,18 +9,16 @@ typedef struct node_t
 {
     unsigned char queue_data[MAX_NODE_CHARS];
     struct node_t *next;
-    //XCHAR ListBoxStr[MAX_NODE_CHARS];
-    //LISTITEM *list_box_item;
-  
-}Node,*NodePtr;
+    
+}Node;
 
 typedef struct queue_t{
-    NodePtr head;
-    NodePtr tail;
-}QueueType,*Queue;
+    Node* head;
+    Node* tail;
+}Queue;
 
 
 Queue* init_queue();
-int empty();
-void enqueue(const char* value);
-void dequeue();
+int empty(Queue *queue);
+void enqueue(Queue *queue,const char* value);
+void dequeue(Queue *queue);

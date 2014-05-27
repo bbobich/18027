@@ -4,49 +4,39 @@
 #include "stddef.h" //for null
 #include "main.h"
 
-//LISTBOX declrarations
-#define LISTBOX_ID 11
-LISTBOX *pQueueLB;
-LISTITEM *pQueueLISTITEM;
-
-Queue queue;
-
 Queue* init_queue(){
 
-    queue=(Queue)malloc(sizeof(Queue));
-    queue->head=NULL;
-    queue->tail=NULL;
+    Queue* queue=(Queue*)malloc(sizeof(Queue));
 
-    /*
-    pQueueLB=LbCreate(LISTBOX_ID,
-                10,10,150,200,
-                LB_DRAW,
-                NULL,
-                NULL);
-    */
-    
+    if(queue==NULL)
+        return (NULL);   //Memory allocation failed
+
+    queue->head=NULL;   //Set the head node to Null
+    queue->tail=NULL;   //Set the tail node to Null
+
     return queue;
-
 }
 
-int empty(){
+int empty(Queue *queue){
 
-    return (queue->head==NULL);
+    return (queue->head==NULL); //Checks if the head node is empty
 }
 
-void enqueue(const char *value){
+void enqueue(Queue *queue,const char *value){
 
     int i=0;
 
-    //Queue *next_queue=(Queue*)malloc(sizeof(Queue));
-    NodePtr np=(NodePtr)malloc(sizeof(Node));
+    //Create a node pointer
+    Node* np=(Node*)malloc(sizeof(Node));
 
+    if(np==NULL)
+        return(NULL);   //Memory allocation failed
+
+    //Load the user value into the node pointer data array
     for(i=0;i<MAX_NODE_CHARS;i++)
         {
             if(*value!='\0')
             {
-                //add to the graphics list
-                //np->ListBoxStr[i]=*value;
                 //add to the node_data
                 np->queue_data[i]=*value++;
                  
@@ -54,48 +44,43 @@ void enqueue(const char *value){
             else
             {
                 np->queue_data[i]=0;
-                //np->ListBoxStr[i]=0;
+               
             }
         }
 
-    //add text to the Graphics listbox
-   // pQueueLISTITEM=LbAddItem(pQueueLB,pQueueLISTITEM,&np->ListBoxStr,NULL,NULL,1);
-   // np->list_box_item=pQueueLISTITEM;
-
+    //Set the next node of NODE to null
     np->next=NULL;
 
-    if(empty()){
-        
+    //Check if the queue node is null
+    if(empty(queue)){
         queue->head=np;
         queue->tail=np;
     }else{
         queue->tail->next=np;
         queue->tail=np;
     }
-
-    Nop();
-    Nop();
-    Nop();
-
 }
 
-void dequeue(){
+void dequeue(Queue *queue){
 
     if(empty(queue)){
-        return 1;
+        return (NULL);
     }
 
+    //set the data from the queue co a dummy data variable
     const char* data=queue->head->queue_data;
+
+    //Create a temp node to delete soon
     Node *temp=queue->head;
 
+    //Set the head node to point to the Next Head
     queue->head=queue->head->next;
+
 
     if(queue->head==NULL)
         queue->tail=NULL;
 
-    //Delete the item from the graphical listbox
-   // LbDelItem(pQueueLB,queue->head->list_box_item);
-
+    //Delete the temp pointer
     free(temp);
     temp=NULL;
 

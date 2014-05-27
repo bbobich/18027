@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Lab 1 Linked List.X
 
 # Active Configuration
-DEFAULTCONF=Lab_1_Linked_List
+DEFAULTCONF=Lab_3_Queues
 CONF=${DEFAULTCONF}
 
 # All Configurations

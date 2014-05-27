@@ -42,9 +42,6 @@
 //                            LOCAL PROTOTYPES
 /////////////////////////////////////////////////////////////////////////////
 
-
-
-
 int main(void)
 {
     GOL_MSG msg;                    // GOL message structure to interact with GO
@@ -67,10 +64,28 @@ int main(void)
     insert_element("Tempe","Mesa");
 #endif
 
-    init_queue();
-    enqueue("Harold");
-    enqueue("Microchip");
-    enqueue("Technology");
+    Queue *q=init_queue();
+    enqueue(q,"Money");
+    
+    enqueue(q,"Harold");
+    enqueue(q,"Microchip");
+
+    Queue *n=init_queue();
+    enqueue(n,"Power");
+    enqueue(n,"Strenght");
+
+    Queue *h=init_queue();
+    enqueue(h,"Real Madrid");
+    enqueue(h,"Barcelona");
+
+Nop();
+   dequeue(q);
+   dequeue(q);
+   dequeue(n);
+   dequeue(h);
+   dequeue(h);
+ Nop();
+ Nop();
  // db_view_linked_list();
 
     while(1)
