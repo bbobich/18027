@@ -36,7 +36,7 @@
 #include <xc.h>
 #include "Main.h"
 #include "linked_list.h"
-#include "Queue.h"
+#include "BinarySearchTree.h"
 
 /////////////////////////////////////////////////////////////////////////////
 //                            LOCAL PROTOTYPES
@@ -64,28 +64,20 @@ int main(void)
     insert_element("Tempe","Mesa");
 #endif
 
-    Queue *q=init_queue();
-    enqueue(q,"Money");
-    
-    enqueue(q,"Harold");
-    enqueue(q,"Microchip");
+   TreeNode *bst=init_binary_search_tree();
 
-    Queue *n=init_queue();
-    enqueue(n,"Power");
-    enqueue(n,"Strenght");
+   put_item(bst,2);
+   put_item(bst,8);
+   put_item(bst,5);
+   put_item(bst,1);
+   put_item(bst,7);
+   put_item(bst,6);
 
-    Queue *h=init_queue();
-    enqueue(h,"Real Madrid");
-    enqueue(h,"Barcelona");
-
-Nop();
-   dequeue(q);
-   dequeue(q);
-   dequeue(n);
-   dequeue(h);
-   dequeue(h);
- Nop();
- Nop();
+   delete_item(bst,8);
+   
+    Nop();
+    Nop();
+   
  // db_view_linked_list();
 
     while(1)

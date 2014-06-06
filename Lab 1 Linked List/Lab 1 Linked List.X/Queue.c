@@ -82,6 +82,8 @@ void dequeue(Queue *queue){
 
     //Delete the temp pointer
     free(temp);
+
+    //Set the temp pointer to Null
     temp=NULL;
 
 }
