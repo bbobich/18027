@@ -63,20 +63,14 @@ int main(void)
     insert_element("Mesa","technology");
     insert_element("Tempe","Mesa");
 #endif
-
-   TreeNode *bst=init_binary_search_tree();
-
-   put_item(bst,2);
-   put_item(bst,8);
-   put_item(bst,5);
-   put_item(bst,1);
-   put_item(bst,7);
-   put_item(bst,6);
-
-   delete_item(bst,8);
    
+   TreeNode *bst=init_binary_search_tree;
+    
+Nop();
     Nop();
-    Nop();
+   
+   
+    
    
  // db_view_linked_list();
 

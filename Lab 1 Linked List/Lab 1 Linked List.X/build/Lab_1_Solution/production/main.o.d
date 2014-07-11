@@ -31,4 +31,5 @@ SPI.h  \
 TickInit.h  \
  TouchScreenInit.h  \
 InitializeBoard.h  \
-linked_list.h 
+linked_list.h  \
+ ../Hood/BinarySearchTree.h 

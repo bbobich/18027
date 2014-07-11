@@ -7,92 +7,124 @@
 
 
 TreeNode* init_binary_search_tree(void){
+    int i;
+   const char* value="microchip";
 
     TreeNode* treeNode=(TreeNode*)malloc(sizeof(TreeNode));
 
         if(treeNode==NULL)
-            return;
+            return NULL;
 
         treeNode->right=NULL;
         treeNode->left=NULL;
 
-        treeNode->info=4;
+         //Load the user value into the node pointer data array
+    for(i=0;i<MAX_NODE_CHARS;i++)
+        {
+            if(*value!='\0')
+            {
+                //add to the node_data
+                treeNode->data[i]=*value++;
+
+            }
+            else
+            {
+                treeNode->data[i]=0;
+
+            }
+        }
 
        return treeNode;
 
 }
 
-void put_item(TreeNode *treeNode,item_type item){
+void put_item(TreeNode *treeNode,const char* item){
     //Calls the recursive function Insert to insert item into tree
   
    treeNode=insert(treeNode,item);
 
 }
 
-TreeNode *insert(TreeNode *tree, item_type item){
+TreeNode *insert(TreeNode *tree, const char* item){
+    int i;
 
     if(tree==NULL){
         tree=(TreeNode*)malloc(sizeof(TreeNode));
 
         tree->left=NULL;
         tree->right=NULL;
-        tree->info=item;
 
-        Nop();
-        Nop();
-    }else if(item<tree->info){      //Insert in left tree
+         //Load the user value into the node pointer data array
+    for(i=0;i<MAX_NODE_CHARS;i++)
+        {
+            if(*item!='\0')
+            {
+                //add to the node_data
+                tree->data[i]=*item++;
+
+            }
+            else
+            {
+                tree->data[i]=0;
+
+            }
+        }
+
+    }else if(strcmp(item,tree->data)<1){      //Insert in left tree
 
         tree->left=insert(tree->left,item);
 
-    }else if(item>tree->info){
+    }else if(strcmp(item,tree->data)>1){
 
         tree->right=insert(tree->right,item);   //Insert in right tree
 
     }
 
     return tree;
+ 
 }
 
-item_type getItem(TreeNode *treeNode,item_type item, bool found){
+const char* getItem(TreeNode *treeNode,const char* item, bool found){
 
     retrieve(treeNode,item,found);
 
     return item;
 }
 
-void retrieve(TreeNode *treeNode,item_type item, bool found){
+void retrieve(TreeNode *treeNode,const char* item, bool found){
 
     //Recursively searches tree for item
 
     if(treeNode==NULL){
         found=false;        //Item is not found
 
-    }else if(item<treeNode->info){
+    }else if(strcmp(item,treeNode->data)<1){
 
         retrieve(treeNode->left,item,found);    //Search left subtree
 
-    }else if(item>treeNode->info){
+    }else if(strcmp(item,treeNode->data)>1){
 
         retrieve(treeNode->right,item,found);   //Search right subtree
 
     }else{
-        item=treeNode->info;    //item is found
+        item=treeNode->data;    //item is found
         found=true;
     }
 
 }
 
-TreeNode* Delete(TreeNode* treeNode, item_type item){
+TreeNode* Delete(TreeNode* treeNode, const char* item){
 
+    int i=0;
     TreeNode* temp;
 
     //Deletes item from tree
 
     if(treeNode==NULL){
         
-    }else if(item<treeNode->info){    //Look in left subtree
+    }else if(item<treeNode->data){    //Look in left subtree
         treeNode->left=Delete(treeNode->left,item);
-    }else if(item>treeNode->info){   //look in right subtree
+    }else if(item>treeNode->data){   //look in right subtree
         treeNode->right=Delete(treeNode->right,item);
     }else{
           
@@ -100,8 +132,15 @@ TreeNode* Delete(TreeNode* treeNode, item_type item){
         if(treeNode->left && treeNode->right){
             //replace with largest in left subtree
             temp=find_max_element(treeNode->left);
-            treeNode->info=temp->info;
-            treeNode->left=Delete(treeNode->left,treeNode->info);
+
+
+            //copy the data from one array to another
+            for(i=0;i<sizeof(temp->data)/sizeof(temp->data[0]);i++){
+
+                treeNode->data[i]=temp->data[i];
+            }
+
+            treeNode->left=Delete(treeNode->left,treeNode->data);
 
         }else{ //one child
 
@@ -119,12 +158,13 @@ TreeNode* Delete(TreeNode* treeNode, item_type item){
     }
 
     return treeNode;
+ 
 }
 
 void delete_node(TreeNode* treeNode){
     //deletes the node pointed by the tree
-
-    item_type data;
+    int i;
+    const char* data;
     TreeNode* tempPtr;
 
     tempPtr=treeNode;
@@ -137,23 +177,41 @@ void delete_node(TreeNode* treeNode){
         free(tempPtr);
     }else{
         get_predecessor(treeNode->left,data);
-        treeNode->info=data;
+
+        for(i=0;i<MAX_NODE_CHARS;i++)
+        {
+            if(*data!='\0')
+            {
+                //add to the node_data
+                treeNode->data[i]=*data++;
+
+            }
+            else
+            {
+                treeNode->data[i]=0;
+
+            }
+        }
+
+
         Delete(treeNode->left,data);  //Delete predecessor node
     }
+ 
 }
 
-void delete_item(TreeNode* treeNode,item_type item){
+void delete_item(TreeNode* treeNode,const char* item){
 
     treeNode=Delete(treeNode,item);
 }
 
-void get_predecessor(TreeNode* treeNode,item_type item){
+void get_predecessor(TreeNode* treeNode,const char* item){
     //sets data to the info memeber of the rightmost node in tree
 
     while(treeNode->right !=NULL){
         treeNode=treeNode->right;
-        item=treeNode->info;
+        item=treeNode->data;
     }
+ 
 }
 
 
@@ -166,54 +224,5 @@ TreeNode* find_max_element(TreeNode* treeNode){
     }else{
         return find_max_element(treeNode->right);
     }
+ 
 }
-/*
-void make_empty(TreeNode *treeNode){
-
-}
-
-bool is_empty(TreeNode *treeNode){
-
-    //Returns true if the tree is empty and false otherwise
-
-    return treeNode==NULL;
-
-}
-
-
-int count_nodes(TreeNode *treeNode){
-
-    //Returns the number of nodes in the tree
-
-    if(treeNode==NULL){
-        return 0;
-    }else{
-        return count_nodes(treeNode->left) + count_nodes(treeNode->right)+1;
-    }
-
-}
-
-int get_length(TreeNode *treeNode){
-
-    //Calls the recursive function CountNodes to count the nodes in the tree
-    return count_nodes(treeNode);
-}
-
-item_type getItem(TreeNode *treeNode,item_type item, bool found){
-
-    //Calls recursive function Retrieve to search the tree for item
-    retrieve(treeNode,item,found);
-    return item;
-}
-
-
-
-
-
-void delete_item(item_type item){
-
-}
-*/
-//void reset_tree(order_type order){}
-
-//item_type get_next_item(order_type order,bool finished){}

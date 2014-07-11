@@ -1,26 +1,26 @@
 #include <stdio.h>
 #include <stdbool.h>
+#define MAX_NODE_CHARS 11
 
-typedef int item_type;
 enum order_type{PRE_ORDER,IN_ORDER,POST_ORDER};
 
 
 typedef struct node{
-    item_type info;
+    unsigned char data[MAX_NODE_CHARS];
     struct node *left;
     struct node *right;
 }TreeNode;
 
 TreeNode *init_binary_search_tree(void);
-void put_item(TreeNode *treeNode,item_type item);
-TreeNode *insert(TreeNode *treeNode,item_type item);
-item_type getItem(TreeNode *treeNode,item_type item, bool found);
-void retrieve(TreeNode *treeNode,item_type item, bool found);
+void put_item(TreeNode *treeNode,const char* item);
+TreeNode *insert(TreeNode *treeNode,const char* item);
+const char* getItem(TreeNode *treeNode,const char* item, bool found);
+void retrieve(TreeNode *treeNode,const char* item, bool found);
 
-TreeNode* Delete(TreeNode* treeNode, item_type item);
+TreeNode* Delete(TreeNode* treeNode, const char* item);
 void delete_node(TreeNode* treeNode);
-void delete_item(TreeNode* treeNode,item_type item);
-void get_predecessor(TreeNode* treeNode, item_type item);
+void delete_item(TreeNode* treeNode,const char* item);
+void get_predecessor(TreeNode* treeNode, const char* item);
 TreeNode* find_max_element(TreeNode* treeNode);
 /*
 void make_empty(TreeNode *treeNode);

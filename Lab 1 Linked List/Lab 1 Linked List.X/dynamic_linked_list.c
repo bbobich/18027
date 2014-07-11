@@ -30,12 +30,6 @@ static INT16 list_size; // units in elements
 
 char temp[MAX_NODE_CHARS];
 
-//LISTBOX declrarations
-#define LISTBOX_ID 10
-LISTBOX *pLb;
-LISTITEM *pLISTITEM;
-///////////////////////
-
 #ifdef DEBUG
 
 // For debugging the linked lists, +1 is so the last NULL can be seen. 
