@@ -64,10 +64,7 @@ int main(void)
     insert_element("Tempe","Mesa");
 #endif
    
-   TreeNode *bst=init_binary_search_tree;
-    
-Nop();
-    Nop();
+ 
    
    
     
